@@ -11,6 +11,7 @@ export type FormComponent = {
     name: string;
     dynamic_fields: string[];
     all_fields: string[];
+    all_field_values: any[];
 }
 
 export type FormProps = {
@@ -21,10 +22,10 @@ export type FormProps = {
 export type FormComponentProps = {
     form_id: string;
     component: FormComponent;
+    curr_component?: string;
     onClose?: () => void;
     showMapDataElement?: boolean;
     setShowMapDataElement?: (show: boolean) => void;
     hideMapDataElement?: () => void;
     prerequisiteComponents: {[form_name: string]: FormComponent[]};
-} 
-
+}

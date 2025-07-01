@@ -57,7 +57,8 @@ function getComponents(data: any) {
             component_id: curr_form.id,
             name: curr_form.name,
             dynamic_fields: Object.keys(curr_form.dynamic_field_config).filter((obj) => obj !== "button"),
-            all_fields: Object.keys(curr_form.field_schema.properties).filter((obj) => obj !== "button")
+            all_fields: Object.keys(curr_form.field_schema.properties).filter((obj) => obj !== "button"),
+            all_field_values: Object.values(curr_form.field_schema.properties).filter((obj: any) => obj["avantos_type"] !== "button").map((val) => val as any),
         });
     }
 
