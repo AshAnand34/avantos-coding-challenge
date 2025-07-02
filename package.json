@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "concurrently \"npm run server\" \"react-scripts test\"",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "nodemon --watch server.ts --exec \"tsc server.ts && node server.js\"",
     "dev": "concurrently \"npm run server\" \"npm start\""
@@ -49,6 +49,7 @@
   "devDependencies": {
     "concurrently": "^9.2.0",
     "nodemon": "^3.1.10",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "jest-fetch-mock": "^3.0.3"
   }
 }

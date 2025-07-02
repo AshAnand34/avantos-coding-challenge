@@ -15,6 +15,7 @@ function Form({formNode, prerequisiteComponents}: FormProps) {
             {showPrefill && (
                 <Prefill 
                     form_id={formNode.id}
+                    form_name={formNode.name}
                     component={formNode.component}
                     onClose={() => setShowPrefill(false)}
                     prerequisiteComponents={prerequisiteComponents}

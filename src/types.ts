@@ -21,6 +21,7 @@ export type FormProps = {
 
 export type FormComponentProps = {
     form_id: string;
+    form_name: string;
     component: FormComponent;
     curr_component?: string;
     onClose?: () => void;
@@ -28,4 +29,10 @@ export type FormComponentProps = {
     setShowMapDataElement?: (show: boolean) => void;
     hideMapDataElement?: () => void;
     prerequisiteComponents: {[form_name: string]: FormComponent[]};
+    prefillMapping: {
+        [key: string]: string | null;
+    },
+    setPrefillMapping: (mapping: {
+        [key: string]: string | null;
+    }) => void;
 }

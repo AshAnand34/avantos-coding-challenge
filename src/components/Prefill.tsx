@@ -13,7 +13,7 @@ interface PrefillProps extends FormComponentProps {
     }) => void;
 }
 
-function Prefill({form_id, component, onClose, prerequisiteComponents, prefillMapping, setPrefillMapping} : PrefillProps) {
+function Prefill({form_id, form_name, component, onClose, prerequisiteComponents, prefillMapping, setPrefillMapping} : PrefillProps) {
     const [showMapDataElement, setShowMapDataElement] = useState<boolean>(false);
     const hideMapDataElement = () => {
       setShowMapDataElement(false);
@@ -51,10 +51,6 @@ function Prefill({form_id, component, onClose, prerequisiteComponents, prefillMa
             <div key={form_id} id="prefill">
                 <h3>Prefill</h3>
                 <InputGroup style={{width: "50%", textAlign: "center", justifyContent: "center", margin: "0 auto"}}>
-                    <Form.Check type="checkbox" id="prefill" name="prefill_elements"/>
-                    <Form.Label htmlFor="prefill">Prefill fields for this form</Form.Label>
-                </InputGroup>
-                <InputGroup style={{width: "50%", textAlign: "center", justifyContent: "center", margin: "0 auto"}}>
                     {component.all_fields.map((val) => 
                         prefillMapping[val] ? (
                             <div key={val}>
@@ -72,11 +68,14 @@ function Prefill({form_id, component, onClose, prerequisiteComponents, prefillMa
             </div>
             <MapDataElement 
                 form_id={form_id} 
+                form_name={form_name}
                 component={component}
                 curr_component={clickedComponent}
                 showMapDataElement={showMapDataElement}
                 hideMapDataElement={hideMapDataElement}
                 prerequisiteComponents={prerequisiteComponents}
+                prefillMapping={prefillMapping}
+                setPrefillMapping={setPrefillMapping}
             />
         </>
     )
